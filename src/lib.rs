@@ -4,7 +4,7 @@ use std::mem;
 use std::thread;
 use std::time::Duration;
 
-/// Lockfree(not wait free) MPSC fixed size ring buffer.
+/// Lockfree SPSC fixed size ring buffer.
 pub struct RingBuffer<T> {
     size: usize,
     items: UnsafeCell<Vec<Option<T>>>,
