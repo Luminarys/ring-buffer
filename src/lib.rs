@@ -12,6 +12,9 @@ pub struct RingBuffer<T> {
     read_pos: AtomicUsize,
 }
 
+unsafe impl<T> Send for RingBuffer<T>{ }
+unsafe impl<T> Sync for RingBuffer<T>{ }
+
 impl<T> RingBuffer<T> {
     pub fn new(size: usize) -> RingBuffer<T> {
         let items = (0..size).map(|_| None).collect();
