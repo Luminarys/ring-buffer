@@ -33,7 +33,7 @@ impl<T> RingBuffer<T> {
             if write_pos - read_pos != self.size {
                 break;
             } else {
-                thread::park_timeout(Duration::from_millis(10));
+                thread::park_timeout(Duration::from_millis(1));
             }
         }
 
@@ -65,7 +65,7 @@ impl<T> RingBuffer<T> {
             if write_pos != read_pos {
                 break;
             } else {
-                thread::park_timeout(Duration::from_millis(10));
+                thread::park_timeout(Duration::from_millis(1));
             }
         }
 
